@@ -2,7 +2,7 @@ package be.intecbrussel;
 
 public enum Value {
 //  constatnts
-    ACE("1"),
+    ACE("Ace"),
     TWO("2"),
     THREE("3"),
     FOUR("4"),

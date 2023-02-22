@@ -8,6 +8,7 @@ public class BlackJackApp {
         // create playing deck
         Deck playingDeck = new Deck();
         playingDeck.createFullDeck();
+        playingDeck.shuffle();
 
         System.out.println(playingDeck);
     }
