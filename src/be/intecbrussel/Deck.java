@@ -1,68 +1,34 @@
 package be.intecbrussel;
 
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Collections;
 
 public class Deck {
-//  propertys
     private ArrayList<Card> cards;
-//  constructors
+
     public Deck() {
         cards = new ArrayList<>();
-    }
+        String[] suits = { "Spades", "Heart", "Diamond", "Club" };
 
-//  getters en setters
-    public Card getCard(int i) {
-        return this.cards.get(i);
-    }
-
-//  methods
-    public void createFullDeck() {
-        // Generate Cards
-        for (Stack cardStack: Stack.values()) {
-            for (Value cardValue : Value.values()) {
-            // Add new card to the deck
-               cards.add(new Card(cardStack, cardValue));
+        for (String suit: suits) {
+            for (int value = 1; value <= 13; value++) {
+                Card card = new Card(value, suit);
+                cards.add(card);
             }
         }
     }
 
     public void shuffle() {
-        ArrayList<Card> tempDeck = new ArrayList<>();
-        //Use Random
-        Random random = new Random();
-        int randomCardIndex = 0;
-        int originalSize = this.cards.size();
-        for (int i = 0; i < originalSize; i++) {
-           // Generate Random Index
-           randomCardIndex = random.nextInt((this.cards.size() - 1) + 1);
-           tempDeck.add(this.cards.get(randomCardIndex));
-           // Remove from original deck
-            this.cards.remove(randomCardIndex);
-        }
-        this.cards = tempDeck;
+        Collections.shuffle(cards);
     }
 
-    public void removeCard(int i) {
-        this.cards.remove(i);
+    public Card distributeCard() {
+        Card card = cards.get(0);
+        cards.remove(0);
+        return card;
     }
 
-    public void addCard(Card addCard) {
-        this.cards.add(addCard);
-    }
-    // Draws from the deck
-    public void draw(Deck comingFrom) {
-        this.cards.add(comingFrom.getCard(0));
-    }
-
-//  Override method
-    public String toString() {
-        StringBuilder cardListOutput = new StringBuilder();
-        int i = 0;
-        for (Card oneCard : cards) {
-            cardListOutput.append("\n").append(i).append(" -> ").append(oneCard.generatedCard());
-            i++;
-        }
-        return cardListOutput.toString();
+    public int getDeckSize() {
+        return cards.size();
     }
 }

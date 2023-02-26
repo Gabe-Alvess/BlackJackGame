@@ -1,23 +1,42 @@
 package be.intecbrussel;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class Card {
-//  propertys
-    private final Stack stack;
-    private final Value value;
+    private int cardValue;
+    private String cardSuit;
 
-//  constructors
-    public Card(Stack stack, Value value) {
-        this.stack = stack;
-        this.value = value;
+    public Card(int cardValue, String cardSuit) {
+        this.cardValue = cardValue;
+        this.cardSuit = cardSuit;
     }
 
-// getters
-    public Value getValue() {
-        return value;
+    public int getCardValue() {
+        return cardValue;
     }
 
-//  method
-    public String generatedCard() {
-        return stack.getStackName() + " - " + value.getValue();
+    public String getCardSuit() {
+        return cardSuit;
+    }
+
+    @Override
+    public String toString() {
+        String stringValue;
+        switch (cardValue) {
+            case 1:
+                stringValue = "Ace";
+                break;
+            case 11:
+                stringValue = "Jack";
+                break;
+            case 12:
+                stringValue = "Queen";
+            case 13:
+                stringValue = "King";
+                break;
+            default: stringValue = Integer.toString(cardValue);
+        }
+        return stringValue + " of " + cardSuit;
     }
 }
