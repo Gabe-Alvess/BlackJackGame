@@ -55,7 +55,7 @@ public class BlackjackApp {
 
             while (playerHand.getHandValue() < 21) {
                 System.out.print("Do you want to hit or stand? (h/s): ");
-                String answer = scanner.nextLine();
+                String answer = scanner.next();
 
                 if (answer.equalsIgnoreCase("h")) {
                     playerHand.addCard(deck.receiveCard());
