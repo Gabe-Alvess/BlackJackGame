@@ -8,7 +8,7 @@ public class BlackjackApp {
         Hand playerHand = new Hand();
         Hand dealerHand = new Hand();
         Scanner scanner = new Scanner(System.in);
-        boolean isBusted = false;
+        boolean playerIsBusted = false;
         int playerMoney = 100;
         int bet = 0;
 
@@ -69,10 +69,10 @@ public class BlackjackApp {
             }
 
             if (playerHand.getHandValue() > 21) {
-                isBusted = true;
+                playerIsBusted = true;
             }
 
-            if (!isBusted) {
+            if (!playerIsBusted && playerHand.getHandValue() != 21) {
                 while (dealerHand.getHandValue() < 17) {
                     dealerHand.addCard(deck.receiveCard());
                 }
