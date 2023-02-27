@@ -22,7 +22,7 @@ public class Deck {
         Collections.shuffle(cards);
     }
 
-    public Card distributeCard() {
+    public Card receiveCard() {
         Card card = cards.get(0);
         cards.remove(0);
         return card;
@@ -30,5 +30,16 @@ public class Deck {
 
     public int getDeckSize() {
         return cards.size();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder cardOutput = new StringBuilder();
+        int i = 0;
+        for (Card card : cards){
+            cardOutput.append("\n").append(i).append(" -> ").append(card.toString());
+            i++;
+        }
+        return cardOutput.toString();
     }
 }

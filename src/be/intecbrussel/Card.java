@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Card {
     private int cardValue;
-    private String cardSuit;
+    private final String cardSuit;
 
     public Card(int cardValue, String cardSuit) {
         this.cardValue = cardValue;
@@ -28,11 +28,15 @@ public class Card {
                 stringValue = "Ace";
                 break;
             case 11:
+                cardValue = 10;
                 stringValue = "Jack";
                 break;
             case 12:
+                cardValue = 10;
                 stringValue = "Queen";
+                break;
             case 13:
+                cardValue = 10;
                 stringValue = "King";
                 break;
             default: stringValue = Integer.toString(cardValue);

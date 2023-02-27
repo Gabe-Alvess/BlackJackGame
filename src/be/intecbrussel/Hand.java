@@ -9,7 +9,7 @@ public class Hand {
         cards = new ArrayList<>();
     }
 
-    public void receiveCard(Card card) {
+    public void addCard(Card card) {
         cards.add(card);
     }
 
@@ -30,7 +30,7 @@ public class Hand {
         return handValue;
     }
 
-    public void discard() {
+    public void discardHand() {
         cards.clear();
     }
 
@@ -38,7 +38,7 @@ public class Hand {
     public String toString() {
         StringBuilder str = new StringBuilder();
         for (Card card : cards) {
-            str.append(card.toString()).append(" ");
+            str.append(card.toString()).append(" - ");
         }
         return str.toString();
     }
