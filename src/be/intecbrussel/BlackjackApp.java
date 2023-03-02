@@ -80,36 +80,29 @@ public class BlackjackApp {
                 System.out.println("Dealer hand score: " + dealerHand.getHandValue());
             }
 
-
+            System.out.println("\nPlayer total score: " + playerHand.getHandValue());
+            System.out.println("Dealer total score: " + dealerHand.getHandValue());
             if (dealerHand.getHandValue() > 21) {
                 System.out.println("\nDealer is busted! You won the round!");
                 System.out.println("You won " + (2 * bet) + "$ :)");
                 playerMoney += (2 * bet);
-                playerHand.discardHand();
-                dealerHand.discardHand();
             } else if (playerHand.getHandValue() > 21) {
                 System.out.println("\nPlayer is busted! Dealer won the round!");
                 System.out.println("You lost " + bet + "$ :(");
-                playerHand.discardHand();
-                dealerHand.discardHand();
             } else if (playerHand.getHandValue() > dealerHand.getHandValue()) {
                 System.out.println("You won the round!");
                 System.out.println("You won " + (2 * bet) + "$ :)");
                 playerMoney += (2 * bet);
-                playerHand.discardHand();
-                dealerHand.discardHand();
             } else if (playerHand.getHandValue() < dealerHand.getHandValue()) {
                 System.out.println("\nDealer won the round!");
                 System.out.println("You lost " + bet + "$ :(");
-                playerHand.discardHand();
-                dealerHand.discardHand();
             } else {
                 System.out.println("\nIt's a tie!");
                 System.out.println("You got your " + bet + "$ bet back!");
                 playerMoney += bet;
-                playerHand.discardHand();
-                dealerHand.discardHand();
             }
+            playerHand.discardHand();
+            dealerHand.discardHand();
         }
         System.out.println("You're out of money! Thanks for playing.");
     }
